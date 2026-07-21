@@ -270,7 +270,23 @@ void PrintNumberPattern(int number)
 }
 // END
 
+// proplem-13: print letters inverted pattern
+void PrintInvertedLettersPattern(int number)
+{
+    int baseLetterNumber = 64;
+
+    for (int i = number + baseLetterNumber ; i >= 65; i--)
+    {
+        for (int j = 1; j <= i - baseLetterNumber ; j++)
+        {
+            cout << char(i);
+        }
+        cout << endl;
+    }
+}
+// END
+
 int main()
 {
-    PrintNumberPattern(ReadPositiveNumber("ENTER: "));
+    PrintInvertedLettersPattern(ReadPositiveNumber("ENTER: "));
 }
