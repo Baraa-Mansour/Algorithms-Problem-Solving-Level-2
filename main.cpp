@@ -256,7 +256,21 @@ void PrintInvertedNumberPattern(int number)
 }
 // END
 
+// proplem-12: print number pattern
+void PrintNumberPattern(int number)
+{
+    for (int i = 1; i <= number; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << i;
+        }
+        cout << endl;
+    }
+}
+// END
+
 int main()
 {
-    PrintInvertedNumberPattern(ReadPositiveNumber("ENTER: "));
+    PrintNumberPattern(ReadPositiveNumber("ENTER: "));
 }
