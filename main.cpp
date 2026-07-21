@@ -38,7 +38,7 @@ void PrintTable()
 // END
 
 // proplem-2: print all prime number from 1 to N
-enum enPrimeNotPrime {PRIME = 1, NOT_PRIME = 2};
+enum enPrimeNotPrime {PRIME = 1, NOT_PRIME = 0};
 int ReadPositiveNumber(string Message)
 {
     int Number = 0;
@@ -80,7 +80,36 @@ void PrintPrimeFrom1toN(int number)
 }
 // END
 
+// proplem-3: is number perfect (perfect = sum(divisors) but not its self)
+enum enPerfectNumber {PERFECT = 1, NOT_PERFECT = 0};
+bool IsDivisor(int number, int divisor)
+{
+    return number % divisor == 0;
+}
+enPerfectNumber IsPerfectNumber(int number)
+{
+    int halfOfNumber = floor(number / 2);
+    int sum = 0;
+
+    for (int i = 1; i <= halfOfNumber ; i++)
+    {
+        if (IsDivisor(number, i))
+        {
+            sum += i;
+        }
+    }
+
+    return sum == number ? PERFECT : NOT_PERFECT;
+}
+void PrintPerfectNumber(int number)
+{
+    cout << "Number " << number << " is: ";
+    IsPerfectNumber(number) == PERFECT ? cout << "PERFECT" : cout << "NOT PERFECT";
+    cout << endl;
+}
+// END
+
 int main()
 {
-    PrintPrimeFrom1toN(ReadPositiveNumber("Enter positive number"));
+    PrintPerfectNumber(ReadPositiveNumber("Enter positive number"));
 }
