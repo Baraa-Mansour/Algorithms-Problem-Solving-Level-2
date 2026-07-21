@@ -242,7 +242,21 @@ bool IsPalindrome(int number)
 }
 // END
 
+// proplem-11: Print Inverted Number Pattern
+void PrintInvertedNumberPattern(int number)
+{
+    for (int i = number ; i > 0 ; i--)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << i;
+        }
+        cout << endl;
+    }
+}
+// END
+
 int main()
 {
-    cout << IsPalindrome(ReadPositiveNumber("enter positive number"));
+    PrintInvertedNumberPattern(ReadPositiveNumber("ENTER: "));
 }
