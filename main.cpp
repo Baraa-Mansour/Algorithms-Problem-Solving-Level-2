@@ -157,7 +157,25 @@ int SumNumbersDigits(int number)
 }
 // END
 
+// proplem-7: take numebr then revers it
+int ReversNumber(int number)
+{
+    int reversed = 0, lastDigit = 0;
+
+    while (number > 0)
+    {
+        lastDigit = GetLastDigit(number);
+
+        number /= 10;
+
+        reversed = (reversed * 10) + lastDigit;
+    }
+
+    return reversed;
+}
+// END
+
 int main()
 {
-    cout << SumNumbersDigits(ReadPositiveNumber("Enter positive number"));
+    cout << ReversNumber(ReadPositiveNumber("Enter positive number"));
 }
