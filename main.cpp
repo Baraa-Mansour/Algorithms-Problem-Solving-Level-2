@@ -109,7 +109,37 @@ void PrintPerfectNumber(int number)
 }
 // END
 
+// proplem-4: print all perfect numebr form 1 to N
+void PrintPerfectNumberFrom1toN(int number)
+{
+    cout << "Perfect number from 1 to " << number << " is:" << endl;
+    for (int i = 1; i <= number ; i++)
+    {
+        if (IsPerfectNumber(i) == PERFECT)
+            cout << i << endl;
+    }
+}
+// END
+
+// proplem-5: take numebr then print its digits in reversed order
+int GetLastDigit(int number)
+{
+    return number % 10;
+}
+void PrintNumberDigitsReversed(int number)
+{
+    while (number > 0)
+    {
+        int lastDigit = GetLastDigit(number);
+
+        cout << lastDigit << endl;
+
+        number /= 10;
+    }
+}
+// END
+
 int main()
 {
-    PrintPerfectNumber(ReadPositiveNumber("Enter positive number"));
+    PrintNumberDigitsReversed(ReadPositiveNumber("Enter positive number"));
 }
