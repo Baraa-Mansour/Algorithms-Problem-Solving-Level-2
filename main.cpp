@@ -192,9 +192,50 @@ int GetDigitFrequency(int number, int digit)
 }
 // END
 
+// proplem-9: take number then return the frequency of each digit in that numebr
+int DeleteDigitFromNumber(int number, int digit)
+{
+    int lastDigit = 0, reversed = 0;
+    while (number > 0)
+    {
+        lastDigit = GetLastDigit(number);
+
+        number /= 10;
+
+        if (lastDigit != digit)
+        {
+            reversed = (reversed * 10) + lastDigit;
+        }
+    }
+
+    return ReversNumber(reversed);
+}
+/*void PrintDigitsFrequency(int number)
+{
+    int lastDigit = 0;
+
+    while (number > 0)
+    {
+        lastDigit = GetLastDigit(number);
+
+        cout << "Digits Count for (" << lastDigit << "):" << GetDigitFrequency(number, lastDigit) << endl;
+
+        number = DeleteDigitFromNumber(number, lastDigit);
+    }
+}*/ 
+void PrintDigitsFrequency(int number)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        int count = GetDigitFrequency(number, i);
+
+        if (count > 0)
+            cout << "Number (" << i << ") Frequency: " << count << endl;
+    }
+}
+// END
+
 int main()
 {
-    int number = ReadPositiveNumber("Enter positive number");
-    int digit = ReadPositiveNumber("Enter positive digit");
-    cout << GetDigitFrequency(number, digit);
+    PrintDigitsFrequency(ReadPositiveNumber("Enter Number: "));
 }
