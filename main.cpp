@@ -175,7 +175,26 @@ int ReversNumber(int number)
 }
 // END
 
+// proplem-8: take number and digit then return the frequency of digit in that numebr
+int GetDigitFrequency(int number, int digit)
+{
+    int lastDigit = 0, counter = 0;
+
+    while (number > 0)
+    {
+        lastDigit = GetLastDigit(number);
+        number /= 10;
+        if (lastDigit == digit)
+            counter++;
+    }
+
+    return counter;
+}
+// END
+
 int main()
 {
-    cout << ReversNumber(ReadPositiveNumber("Enter positive number"));
+    int number = ReadPositiveNumber("Enter positive number");
+    int digit = ReadPositiveNumber("Enter positive digit");
+    cout << GetDigitFrequency(number, digit);
 }
