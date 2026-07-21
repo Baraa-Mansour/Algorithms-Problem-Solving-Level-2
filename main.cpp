@@ -37,8 +37,50 @@ void PrintTable()
 }
 // END
 
+// proplem-2: print all prime number from 1 to N
+enum enPrimeNotPrime {PRIME = 1, NOT_PRIME = 2};
+int ReadPositiveNumber(string Message)
+{
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0);
+
+    return Number;
+}
+enPrimeNotPrime CheckPrime(int number)
+{
+    if (number < 2)
+        return PRIME;
+
+    int halfOfNumber = floor(number / 2);
+
+    for (int i = 2; i <= halfOfNumber; i++)
+    {
+        if (number % i == 0)
+            return enPrimeNotPrime::NOT_PRIME;
+    }
+
+    return enPrimeNotPrime::PRIME;
+}
+void PrintPrimeFrom1toN(int number)
+{
+    cout << "\n";
+    cout << "Prime number from 1 to " << number << " are:" << endl;
+
+    for (int i = 1; i <= number; i++)
+    {
+        if (CheckPrime(i) == enPrimeNotPrime::PRIME)
+        {
+            cout << i << endl;
+        }
+    }
+}
+// END
 
 int main()
 {
-    PrintTable();
+    PrintPrimeFrom1toN(ReadPositiveNumber("Enter positive number"));
 }
