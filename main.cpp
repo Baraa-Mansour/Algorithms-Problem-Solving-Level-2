@@ -235,7 +235,14 @@ void PrintDigitsFrequency(int number)
 }
 // END
 
+// proplem-10: check palindrome number (number = revers(number))
+bool IsPalindrome(int number)
+{
+    return number == ReversNumber(number);
+}
+// END
+
 int main()
 {
-    PrintDigitsFrequency(ReadPositiveNumber("Enter Number: "));
+    cout << IsPalindrome(ReadPositiveNumber("enter positive number"));
 }
