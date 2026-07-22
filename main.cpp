@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -358,10 +360,23 @@ string Decrypt(string word, short encryptionKey)
 }
 // END
 
+// proplem-17: print 3 random numbers between 1 and 10
+int GenerateRandomNumberInRange(int from, int to)
+{
+    return rand() % (to - from + 1) + from;
+}
+void Print3RandomNumberBetween1and10()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        cout << GenerateRandomNumberInRange(1, 10) << endl;
+    }
+}
+// END
 
 int main()
 {
-    string encrypt = Encrypt("baraa", 2);
-    cout <<  encrypt << endl;
-    cout << Decrypt(encrypt, 2);
+    srand((unsigned)time(NULL));
+
+    Print3RandomNumberBetween1and10();
 }
