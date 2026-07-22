@@ -614,18 +614,42 @@ void PrintArray(string arr[100], int arrLength)
 }
 // END
 
+// proplem-32: get element index in array
+int GetElementIndex(int arr[100], int arrLength, int number)
+{
+    for (int i = 0; i < arrLength; i++)
+        if (arr[i] == number) return i;
+
+    return -1;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    string arr[100];
+    int arr[100];
     int copyArr[100];
     int arrLength = ReadPositiveNumber("Enter array length: ");
     
-    FillArrayWithRandomKeys(arr, arrLength);
+    FillArrayWithRandomNumbers(arr, arrLength);
 
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
+
+    int number = ReadPositiveNumber("Number to look for: ");
+    
+    int index = GetElementIndex(arr, arrLength, number);
+
+    if (index != -1)
+    {
+        cout << "Number " << number << " found in position: " << index << endl;
+        cout << "Order: " << index + 1;
+    }
+    else
+    {
+        cout << "Number " << number << " Not Found" << endl;
+    }
     
 }
