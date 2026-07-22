@@ -489,9 +489,20 @@ void PrintTimesRepeated()
 }
 // END
 
+// proplem-21: get array length then fill it with randoms from 1 to 100
+void FillArrayWithRandomNumbers(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+        arr[i] = GenerateRandomNumberInRange(1, 100);
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    PrintTimesRepeated();
+    int arr[100];
+    int arrayLenght = ReadPositiveNumber("Enter array length: ");
+    FillArrayWithRandomNumbers(arr, arrayLenght);
+    PrintAraray(arr, arrayLenght);
 }
