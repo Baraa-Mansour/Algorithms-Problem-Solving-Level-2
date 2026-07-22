@@ -507,13 +507,79 @@ int GetMaxInArray(int arr[100], int arrayLength)
 }
 // END
 
+// proplem-23: get min in array
+int GetMinInArray(int arr[100], int arrayLength)
+{
+    int min = arr[0];
+    for (int i = 1; i < arrayLength; i++)
+        if (arr[i] < min) min = arr[i];
+    return min;
+}
+// END
+
+// proplem-24: get sum of array elements
+int GetSumArrayElements(int arr[100], int arrLength)
+{
+    int sum = 0;
+    for (int i = 0; i < arrLength; i++)
+        sum += arr[i];
+    return sum;
+}
+// END
+
+// proplem-25: get avg in array
+float GetAvgInArray(int arr[100], int arrayLength)
+{
+    return (float)GetSumArrayElements(arr, arrayLength) / arrayLength;
+}
+// END
+
+// proplem-26: copy array
+void CopyArray(int originalArr[100], int copyArr[100], int arrLength)
+{
+    for (int i = 0 ; i < arrLength ; i++)
+        copyArr[i] = originalArr[i];
+}
+// END
+
+// proplem-27: copy prime array numbers
+void CopyPrimeArrayNumbers(int originalArr[100], int copyArr[100], int arrLength, int& copyLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (CheckPrime(originalArr[i]) == PRIME)
+        {
+            copyArr[copyLength] = originalArr[i];
+            copyLength++;
+        }
+    }
+}
+// END
+
+// proplem-28: sum of 2 arrays into third one
+void SumOf2Arrays(int arr1[100], int arr2[100], int sumArr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+        sumArr[i] = arr1[i] + arr2[i];
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
+    int arr2[100];
     int arrayLenght = ReadPositiveNumber("Enter array length: ");
+    int copyLength = 0;
+    int arr3[100];
     FillArrayWithRandomNumbers(arr, arrayLenght);
+    FillArrayWithRandomNumbers(arr2, arrayLenght);
+
     PrintAraray(arr, arrayLenght);
-    cout << GetMaxInArray(arr, arrayLenght);
+    PrintAraray(arr2, arrayLenght);
+
+    SumOf2Arrays(arr, arr2, arr3, arrayLenght);
+    PrintAraray(arr3, arrayLenght);
+    
 }
