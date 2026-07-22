@@ -624,6 +624,13 @@ int GetElementIndex(int arr[100], int arrLength, int number)
 }
 // END
 
+// proplem-33: check if elemnt found in array
+bool IsElemntFoundInArray(int arr[100], int arrLength, int number)
+{
+    return GetElementIndex(arr, arrLength, number) != -1;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
