@@ -591,23 +591,30 @@ void ShuffleArray(int arr[100], int arrLength)
 }
 // END
 
+// proplem-30: copy array in reversed order
+void CopyArrayReversed(int originalArr[100], int copyArr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+        copyArr[i] = originalArr[arrLength - i - 1];
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
+    int copyArr[100];
     int arrLength = ReadPositiveNumber("Enter array length: ");
     
-    FillArrayFrom1toN(arr, arrLength);
+    FillArrayWithRandomNumbers(arr, arrLength);
 
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
 
-    ShuffleArray(arr, arrLength);
+    CopyArrayReversed(arr, copyArr, arrLength);
 
-    cout << "__________________________________________" << endl;
-
-    PrintArray(arr, arrLength);
+    PrintArray(copyArr, arrLength);
     
 }
