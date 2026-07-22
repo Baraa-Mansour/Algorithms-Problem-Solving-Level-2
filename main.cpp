@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <string>
 
 using namespace std;
 
@@ -436,9 +437,61 @@ void PrintRandomsKeys(int numberOfKeys)
 }
 // END
 
+// proplem-20: 
+// -Enter number of array elements
+// -Enter array elemnts
+// -Enter elemnt you want to count and return it
+void FillArrayElements(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        arr[i] = ReadPositiveNumber("Enter elemnt (" + to_string(i) + ")");
+    }
+}
+int TimesRepeated(int arr[100], int arrLength, int number)
+{
+    int counter = 0;
+
+    for (int i = 0; i < arrLength; i++)
+    {
+        if (arr[i] == number)
+            counter++;
+    }
+
+    return counter;
+}
+int ReadArray(int arr[100])
+{
+    int arrLength = ReadPositiveNumber("Enter array length");
+    FillArrayElements(arr, arrLength);
+    return arrLength;
+}
+void PrintAraray(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << "Element " << i << ": " << arr[i] << endl;
+    }
+}
+void PrintTimesRepeated()
+{
+    int arr[100] = {};
+    int arrLength = ReadArray(arr);
+
+    PrintAraray(arr, arrLength);
+
+    int number = ReadPositiveNumber("Enter number to check: ");
+
+    int timeRepeated = TimesRepeated(arr, arrLength, number);
+
+    cout << number << " repeated times: ";
+    cout << timeRepeated << endl;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    PrintRandomsKeys(5);
+    PrintTimesRepeated();
 }
