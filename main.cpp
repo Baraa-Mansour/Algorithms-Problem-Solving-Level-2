@@ -466,7 +466,7 @@ int ReadArray(int arr[100])
     FillArrayElements(arr, arrLength);
     return arrLength;
 }
-void PrintAraray(int arr[100], int arrLength)
+void PrintArray(int arr[100], int arrLength)
 {
     for (int i = 0; i < arrLength; i++)
     {
@@ -478,7 +478,7 @@ void PrintTimesRepeated()
     int arr[100] = {};
     int arrLength = ReadArray(arr);
 
-    PrintAraray(arr, arrLength);
+    PrintArray(arr, arrLength);
 
     int number = ReadPositiveNumber("Enter number to check: ");
 
@@ -576,10 +576,10 @@ int main()
     FillArrayWithRandomNumbers(arr, arrayLenght);
     FillArrayWithRandomNumbers(arr2, arrayLenght);
 
-    PrintAraray(arr, arrayLenght);
-    PrintAraray(arr2, arrayLenght);
+    PrintArray(arr, arrayLenght);
+    PrintArray(arr2, arrayLenght);
 
     SumOf2Arrays(arr, arr2, arr3, arrayLenght);
-    PrintAraray(arr3, arrayLenght);
+    PrintArray(arr3, arrayLenght);
     
 }
