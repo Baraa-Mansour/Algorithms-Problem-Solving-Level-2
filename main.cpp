@@ -333,7 +333,35 @@ string Get3LettersPassword(string password)
 }
 // END
 
+// proplem-16: Encrypt/Decrypt word
+string Encrypt(string word, short encryptionKey)
+{
+    string encrypted = "";
+
+    for (int i = 0; i < word.length(); i++)
+    {
+        encrypted += char((int)word[i] + encryptionKey);
+    }
+
+    return encrypted;
+}
+string Decrypt(string word, short encryptionKey)
+{
+    string encrypted = "";
+
+    for (int i = 0; i < word.length(); i++)
+    {
+        encrypted += char((int)word[i] - encryptionKey);
+    }
+
+    return encrypted;
+}
+// END
+
+
 int main()
 {
-    cout << Get3LettersPassword("ZZZ");
+    string encrypt = Encrypt("baraa", 2);
+    cout <<  encrypt << endl;
+    cout << Decrypt(encrypt, 2);
 }
