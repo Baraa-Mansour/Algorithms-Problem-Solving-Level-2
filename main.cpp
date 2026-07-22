@@ -564,22 +564,50 @@ void SumOf2Arrays(int arr1[100], int arr2[100], int sumArr[100], int arrLength)
 }
 // END
 
+// proplem-29: 
+// -fill array with order numebr from 1 to n
+// -shuffle this array
+void FillArrayFrom1toN(int arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+        arr[i] = i + 1;
+}
+void Swap(int& num1, int& num2)
+{
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+void ShuffleArray(int arr[100], int arrLength)
+{
+    int lastIndex = arrLength - 1;
+
+    for (int i = 0; i < arrLength; i++)
+    {
+        int index1 = GenerateRandomNumberInRange(0, arrLength - 1);
+        int index2 = GenerateRandomNumberInRange(0, arrLength - 1);
+        Swap(arr[index1], arr[index2]);
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
-    int arr2[100];
-    int arrayLenght = ReadPositiveNumber("Enter array length: ");
-    int copyLength = 0;
-    int arr3[100];
-    FillArrayWithRandomNumbers(arr, arrayLenght);
-    FillArrayWithRandomNumbers(arr2, arrayLenght);
+    int arrLength = ReadPositiveNumber("Enter array length: ");
+    
+    FillArrayFrom1toN(arr, arrLength);
 
-    PrintArray(arr, arrayLenght);
-    PrintArray(arr2, arrayLenght);
+    PrintArray(arr, arrLength);
 
-    SumOf2Arrays(arr, arr2, arr3, arrayLenght);
-    PrintArray(arr3, arrayLenght);
+    cout << "__________________________________________" << endl;
+
+    ShuffleArray(arr, arrLength);
+
+    cout << "__________________________________________" << endl;
+
+    PrintArray(arr, arrLength);
     
 }
