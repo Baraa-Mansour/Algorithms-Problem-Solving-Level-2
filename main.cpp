@@ -497,6 +497,16 @@ void FillArrayWithRandomNumbers(int arr[100], int arrLength)
 }
 // END
 
+// proplem-22: get max in array
+int GetMaxInArray(int arr[100], int arrayLength)
+{
+    int max = arr[0];
+    for (int i = 1; i < arrayLength; i++)
+        if (arr[i] > max) max = arr[i];
+    return max;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
@@ -505,4 +515,5 @@ int main()
     int arrayLenght = ReadPositiveNumber("Enter array length: ");
     FillArrayWithRandomNumbers(arr, arrayLenght);
     PrintAraray(arr, arrayLenght);
+    cout << GetMaxInArray(arr, arrayLenght);
 }
