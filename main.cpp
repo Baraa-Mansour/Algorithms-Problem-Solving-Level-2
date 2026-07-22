@@ -374,9 +374,38 @@ void Print3RandomNumberBetween1and10()
 }
 // END
 
+// proplem-18: prrint random small letter, capital letter, special character and digit
+enum enRandomType
+{
+    SMALL_LETTER = 1,
+    CAPITAL_LETTER = 2,
+    SPECIAL_CHARACTER = 3,
+    DIGIT = 4
+};
+char GenerateRandomCharacter(enRandomType type)
+{
+    switch (type)
+    {
+    case SMALL_LETTER:
+        return char(GenerateRandomNumberInRange(97, 122));
+    case CAPITAL_LETTER:
+        return char(GenerateRandomNumberInRange(65, 90));
+    case SPECIAL_CHARACTER:
+        return char(GenerateRandomNumberInRange(33, 47));
+    case DIGIT:
+        return char(GenerateRandomNumberInRange(48, 57));
+    default:
+        return char(GenerateRandomNumberInRange(48, 57));
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    Print3RandomNumberBetween1and10();
+    cout << GenerateRandomCharacter(CAPITAL_LETTER) << endl;
+    cout << GenerateRandomCharacter(SMALL_LETTER) << endl;
+    cout << GenerateRandomCharacter(SPECIAL_CHARACTER) << endl;
+    cout << GenerateRandomCharacter(DIGIT) << endl;
 }
