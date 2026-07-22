@@ -304,7 +304,36 @@ void PrintAAAtoZZZ()
 }
 // END
 
+// proplem-15: guess 3-letters password
+string Get3LettersPassword(string password)
+{
+    int baseLetterNumber = 65;
+    int lastLetterNumber = 90;
+    string word = "";
+
+    for (int i = 65; i <= 90; i++)
+    {
+        for (int j = 65; j <= 90; j++)
+        {
+            for (int k = 65; k <= 90; k++)
+            {
+                word = word + char(i);
+                word = word + char(j);
+                word = word + char(k);
+
+                if (word == password)
+                    return word;
+
+                word = "";
+            }
+        }
+    }
+    
+    return word;
+}
+// END
+
 int main()
 {
-    PrintAAAtoZZZ();
+    cout << Get3LettersPassword("ZZZ");
 }
