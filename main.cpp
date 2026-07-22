@@ -599,22 +599,33 @@ void CopyArrayReversed(int originalArr[100], int copyArr[100], int arrLength)
 }
 // END
 
+// proplem-31: fill array with number of random key
+void FillArrayWithRandomKeys(string arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+        arr[i] = GenerateRandomKey(CAPITAL_LETTER, 4, 4);
+}
+void PrintArray(string arr[100], int arrLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        cout << "Element " << i << ": " << arr[i] << endl;
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    int arr[100];
+    string arr[100];
     int copyArr[100];
     int arrLength = ReadPositiveNumber("Enter array length: ");
     
-    FillArrayWithRandomNumbers(arr, arrLength);
+    FillArrayWithRandomKeys(arr, arrLength);
 
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
-
-    CopyArrayReversed(arr, copyArr, arrLength);
-
-    PrintArray(copyArr, arrLength);
     
 }
