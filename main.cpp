@@ -286,7 +286,25 @@ void PrintInvertedLettersPattern(int number)
 }
 // END
 
+// proplem-14: print all words from AAA to ZZZ
+void PrintAAAtoZZZ()
+{
+    int baseLetterNumber = 65;
+    int lastLetterNumber = 90;
+    for (int i = 65; i <= 90; i++)
+    {
+        for (int j = 65; j <= 90; j++)
+        {
+            for (int k = 65; k <= 90; k++)
+            {
+                cout << char(i) << char(j) << char(k) << endl;
+            }
+        }
+    }
+}
+// END
+
 int main()
 {
-    PrintInvertedLettersPattern(ReadPositiveNumber("ENTER: "));
+    PrintAAAtoZZZ();
 }
