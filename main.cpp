@@ -400,12 +400,45 @@ char GenerateRandomCharacter(enRandomType type)
 }
 // END
 
+// proplem-19: generate random keys xxxx-xxxx-xxxx-xxxx from capital letters
+string GenerateWord(enRandomType type, int wordLength)
+{
+    string word = "";
+
+    for (int j = 1; j <= wordLength; j++)
+    {
+        word += GenerateRandomCharacter(type);
+    }
+
+    return word;
+}
+string GenerateRandomKey(enRandomType type, int keyLength, int wordLength)
+{
+    string key = "";
+
+    for (int i = 1; i <= keyLength; i++)
+    {
+        key += GenerateWord(type, wordLength);  
+
+        if (i != keyLength)
+            key += "-";
+    }
+
+    return key;
+}
+void PrintRandomsKeys(int numberOfKeys)
+{
+    while (numberOfKeys > 0)
+    {
+        cout << GenerateRandomKey(CAPITAL_LETTER, 4, 4) << endl;
+        numberOfKeys--;
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    cout << GenerateRandomCharacter(CAPITAL_LETTER) << endl;
-    cout << GenerateRandomCharacter(SMALL_LETTER) << endl;
-    cout << GenerateRandomCharacter(SPECIAL_CHARACTER) << endl;
-    cout << GenerateRandomCharacter(DIGIT) << endl;
+    PrintRandomsKeys(5);
 }
