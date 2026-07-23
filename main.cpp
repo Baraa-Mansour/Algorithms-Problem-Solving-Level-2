@@ -726,20 +726,22 @@ int EvenOddCount(int arr[100], int arrLength, enEvenOdd numType)
 }
 // END
 
+// proplem-40: return abs of number (dont use built in function)
+int MyAbs(int number)
+{
+    return number > 0 ? number : (number * -1);
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    int arr[100];
-    int copyArr[100];
-    int arrLength = ReadPositiveNumber("Enter arr length: ");
-    int copyLength = 0;
-    
-    FillArrayWithRandomNumbers(arr, arrLength);
-    PrintArray(arr, arrLength);
+    int number = ReadPositiveNumber("Enter number: ");
 
-    cout << "__________________________________________" << endl;
-
-    cout << EvenOddCount(arr, arrLength, EVEN) << endl;
+    cout << MyAbs(10) << endl;
+    cout << MyAbs(-10) << endl;
+    cout << MyAbs(8) << endl;
+    cout << MyAbs(-8) << endl;
     
 }
