@@ -759,17 +759,32 @@ int MyFloor(float number)
 }
 // END
 
+// proplem-43: return ceil of numebr (dont use built in function)
+int MyCeil(float number)
+{
+    int integerPart = (int)number;
+    float fractionPart = GetFractionPart(number);
+
+    if (abs(fractionPart) > 0)
+        return integerPart > 0 ? ++integerPart : --integerPart;
+
+    return number;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    cout << MyFloor(10.5) << endl;
-    cout << MyFloor(-10.5) << endl;
-    cout << MyFloor(10.4) << endl;
-    cout << MyFloor(-10.4) << endl;
-    cout << MyFloor(10.6) << endl;
-    cout << MyFloor(-10.6) << endl;
-    cout << MyFloor(10.0) << endl;
-    cout << MyFloor(-10.0) << endl;
+    cout << MyCeil(10.5) << endl;
+    cout << MyCeil(-10.5) << endl;
+    cout << MyCeil(10.4) << endl;
+    cout << MyCeil(-10.4) << endl;
+    cout << MyCeil(10.6) << endl;
+    cout << MyCeil(-10.6) << endl;
+    cout << MyCeil(10.0) << endl;
+    cout << MyCeil(-10.0) << endl;
+    cout << MyCeil(10) << endl;
+    cout << MyCeil(-10) << endl;
     
 }
