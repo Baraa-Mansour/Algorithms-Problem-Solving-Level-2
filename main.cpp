@@ -702,6 +702,18 @@ void CopyDistinctArrayNumber(int originalArr[100], int copyArr[100], int arrLeng
 }
 // END
 
+// porplem-38: Palindrome array (array = revers(array))
+bool IsPalindromeArray(int arr[100], int arrLength)
+{
+    int halfLength = floor(arrLength / 2);
+
+    for (int i = 0; i < halfLength; i++)
+        if (arr[i] != arr[arrLength - i - 1]) return false;
+
+    return true;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
@@ -716,9 +728,6 @@ int main()
 
     cout << "__________________________________________" << endl;
 
-    CopyDistinctArrayNumber(arr, copyArr, arrLength, copyLength);
-    PrintArray(copyArr, copyLength);
-
-    cout << "__________________________________________" << endl;
+    cout << IsPalindromeArray(arr, arrLength) << endl;
     
 }
