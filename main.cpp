@@ -663,6 +663,13 @@ void ReadArraySimiDynamic(int arr[100], int& arrLength)
 }
 // END
 
+// proplem-35: copy array with add array function
+void CopyArray(int originalArr[100], int copyArr[100], int originalLength, int& copyLength)
+{
+    for (int i = 0; i < originalLength; i++)
+        AddArrayElemnt(copyArr, copyLength, originalArr[i]);
+}
+// END
 
 int main()
 {
@@ -670,16 +677,17 @@ int main()
 
     int arr[100];
     int copyArr[100];
-    int arrLength = 0;
+    int arrLength = ReadPositiveNumber("Enter arr length: ");
+    int copyLength = 0;
     
-    ReadArraySimiDynamic(arr, arrLength);
-
-    cout << "__________________________________________" << endl;
-
+    FillArrayWithRandomNumbers(arr, arrLength);
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
 
-    cout << arrLength << endl;
+    CopyArray(arr, copyArr, arrLength, copyLength);
+    PrintArray(copyArr, copyLength);
+
+    cout << "__________________________________________" << endl;
     
 }
