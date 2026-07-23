@@ -750,15 +750,26 @@ int MyRound(float number)
 }
 // END
 
+// proplem-42: return floor of numebr (dont use built in function)
+int MyFloor(float number)
+{
+    int integerPart = (int)number;
+
+    return integerPart;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    cout << MyRound(10.5) << endl;
-    cout << MyRound(-10.5) << endl;
-    cout << MyRound(10.4) << endl;
-    cout << MyRound(-10.4) << endl;
-    cout << MyRound(10.6) << endl;
-    cout << MyRound(-10.6) << endl;
+    cout << MyFloor(10.5) << endl;
+    cout << MyFloor(-10.5) << endl;
+    cout << MyFloor(10.4) << endl;
+    cout << MyFloor(-10.4) << endl;
+    cout << MyFloor(10.6) << endl;
+    cout << MyFloor(-10.6) << endl;
+    cout << MyFloor(10.0) << endl;
+    cout << MyFloor(-10.0) << endl;
     
 }
