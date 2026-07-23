@@ -671,6 +671,25 @@ void CopyArray(int originalArr[100], int copyArr[100], int originalLength, int& 
 }
 // END
 
+// proplem-36: copy odd array numbers
+enum enEvenOdd { EVEN = 1, ODD = 2 };
+enEvenOdd CheckEvenOdd(int number)
+{
+    return number % 2 == 0 ? EVEN : ODD;
+}
+void CopyOddArrayNumbers(int originalArr[100], int copyArr[100], int arrLength, int& copyLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        int currentElemnt = originalArr[i];
+        if (CheckEvenOdd(currentElemnt) == ODD)
+        {
+            AddArrayElemnt(copyArr, copyLength, currentElemnt);
+        }
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
@@ -685,7 +704,7 @@ int main()
 
     cout << "__________________________________________" << endl;
 
-    CopyArray(arr, copyArr, arrLength, copyLength);
+    CopyOddArrayNumbers(arr, copyArr, arrLength, copyLength);
     PrintArray(copyArr, copyLength);
 
     cout << "__________________________________________" << endl;
