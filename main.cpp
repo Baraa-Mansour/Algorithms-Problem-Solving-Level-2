@@ -733,15 +733,32 @@ int MyAbs(int number)
 }
 // END
 
+// proplem-41: return round of number (dont use built in function)
+float GetFractionPart(float Number)
+{
+    return Number - int(Number);
+}
+int MyRound(float number)
+{
+    float fractionPart = GetFractionPart(number);
+    int integerPart = (int)number;
+
+    if (abs(fractionPart) >= 0.5)
+        return number > 0 ? ++integerPart : --integerPart;
+    else
+        return integerPart;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    int number = ReadPositiveNumber("Enter number: ");
-
-    cout << MyAbs(10) << endl;
-    cout << MyAbs(-10) << endl;
-    cout << MyAbs(8) << endl;
-    cout << MyAbs(-8) << endl;
+    cout << MyRound(10.5) << endl;
+    cout << MyRound(-10.5) << endl;
+    cout << MyRound(10.4) << endl;
+    cout << MyRound(-10.4) << endl;
+    cout << MyRound(10.6) << endl;
+    cout << MyRound(-10.6) << endl;
     
 }
