@@ -690,21 +690,33 @@ void CopyOddArrayNumbers(int originalArr[100], int copyArr[100], int arrLength, 
 }
 // END
 
+// porplem-37: copy distinct number in array
+void CopyDistinctArrayNumber(int originalArr[100], int copyArr[100], int arrLength, int& copyLength)
+{
+    for (int i = 0; i < arrLength; i++)
+    {
+        int currentElement = originalArr[i];
+        if (!IsElemntFoundInArray(copyArr, copyLength, currentElement))
+            AddArrayElemnt(copyArr, copyLength, currentElement);
+    }
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
     int copyArr[100];
-    int arrLength = ReadPositiveNumber("Enter arr length: ");
+    int arrLength = 0;
     int copyLength = 0;
     
-    FillArrayWithRandomNumbers(arr, arrLength);
+    ReadArraySimiDynamic(arr, arrLength);
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
 
-    CopyOddArrayNumbers(arr, copyArr, arrLength, copyLength);
+    CopyDistinctArrayNumber(arr, copyArr, arrLength, copyLength);
     PrintArray(copyArr, copyLength);
 
     cout << "__________________________________________" << endl;
