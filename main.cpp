@@ -714,20 +714,32 @@ bool IsPalindromeArray(int arr[100], int arrLength)
 }
 // END
 
+// poplem-39: count even/odd numbers in arr
+int EvenOddCount(int arr[100], int arrLength, enEvenOdd numType)
+{
+    int counter = 0;
+
+    for (int i = 0; i < arrLength; i++)
+        if (CheckEvenOdd(arr[i]) == numType) counter++;
+
+    return counter;
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
     int copyArr[100];
-    int arrLength = 0;
+    int arrLength = ReadPositiveNumber("Enter arr length: ");
     int copyLength = 0;
     
-    ReadArraySimiDynamic(arr, arrLength);
+    FillArrayWithRandomNumbers(arr, arrLength);
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
 
-    cout << IsPalindromeArray(arr, arrLength) << endl;
+    cout << EvenOddCount(arr, arrLength, EVEN) << endl;
     
 }
