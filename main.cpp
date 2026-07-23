@@ -631,32 +631,55 @@ bool IsElemntFoundInArray(int arr[100], int arrLength, int number)
 }
 // END
 
+// porplem-34: read array from user with simi-dynamic array length (max 100)
+bool ReadYesNo(string message)
+{
+    bool answer = false;
+
+    cout << message << endl;
+    cin >> answer;
+
+    return answer;
+}
+void AddArrayElemnt(int arr[100], int& arrlength, int number)
+{
+    arr[arrlength++] = number;
+}
+void ReadArraySimiDynamic(int arr[100], int& arrLength)
+{
+    int number = -1;
+    bool moreNumbers = false;
+    int currentIndex = 0;
+    do
+    {
+        number = ReadPositiveNumber("Enter number: ");
+
+        AddArrayElemnt(arr, arrLength, number);
+
+        moreNumbers = ReadYesNo("More Numbers? [0]:No, [1]:yes?");
+
+    } while (moreNumbers && currentIndex != 100);
+
+}
+// END
+
+
 int main()
 {
     srand((unsigned)time(NULL));
 
     int arr[100];
     int copyArr[100];
-    int arrLength = ReadPositiveNumber("Enter array length: ");
+    int arrLength = 0;
     
-    FillArrayWithRandomNumbers(arr, arrLength);
+    ReadArraySimiDynamic(arr, arrLength);
+
+    cout << "__________________________________________" << endl;
 
     PrintArray(arr, arrLength);
 
     cout << "__________________________________________" << endl;
 
-    int number = ReadPositiveNumber("Number to look for: ");
-    
-    int index = GetElementIndex(arr, arrLength, number);
-
-    if (index != -1)
-    {
-        cout << "Number " << number << " found in position: " << index << endl;
-        cout << "Order: " << index + 1;
-    }
-    else
-    {
-        cout << "Number " << number << " Not Found" << endl;
-    }
+    cout << arrLength << endl;
     
 }
