@@ -2,14 +2,12 @@
 .vs/
 x64/
 *.suo
-*.user
 *.userosscache
 *.sln.docstates
 
 # Build output directories
 Debug/
 Release/
-x64/
 x86/
 *.exe
 *.dll
