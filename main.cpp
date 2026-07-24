@@ -772,19 +772,18 @@ int MyCeil(float number)
 }
 // END
 
+// proplem-44: return sqrt of numebr (dont use built in function)
+float MySqrt(float number)
+{
+    return pow(number, 0.5);
+}
+// END
+
 int main()
 {
     srand((unsigned)time(NULL));
 
-    cout << MyCeil(10.5) << endl;
-    cout << MyCeil(-10.5) << endl;
-    cout << MyCeil(10.4) << endl;
-    cout << MyCeil(-10.4) << endl;
-    cout << MyCeil(10.6) << endl;
-    cout << MyCeil(-10.6) << endl;
-    cout << MyCeil(10.0) << endl;
-    cout << MyCeil(-10.0) << endl;
-    cout << MyCeil(10) << endl;
-    cout << MyCeil(-10) << endl;
-    
+    int number = ReadPositiveNumber("eneter number: ");
+
+    cout << MySqrt(number) << endl;
 }
